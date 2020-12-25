@@ -4,9 +4,6 @@ export const useStyles = makeStyles(() => ({
   root: {
     marginTop: "8%",
     width: "100%",
-    display: "flex",
-    alignItems: "center",
-    height: "auto",
   },
   paper: {
     maxWidth: 1300,
@@ -19,4 +16,8 @@ export const useStyles = makeStyles(() => ({
   des: { maxWidth: "55%" },
   grid: { paddingTop: "5%" },
   img2: { objectFit: "contain", height: 150, width: 100 },
+  carousel: {
+    marginTop: "3%",
+  },
+  test: { width: 250, height: 250 },
 }));

@@ -22,9 +22,13 @@ const App = () => {
     setCart(await commerce.cart.retrieve());
   };
 
-  const handleAddToCart = async (productId, quantity) => {
+  const handleAddToCart = async (productId, quantity, variant) => {
+    if (variant) {
+      const item = await commerce.cart.add(productId, quantity, variant);
+      setCart(item.cart);
+      return;
+    }
     const item = await commerce.cart.add(productId, quantity);
-
     setCart(item.cart);
   };
 
@@ -106,7 +110,13 @@ const App = () => {
               error={errorMessage}
             />
           </Route>
-          <Route exact path="/display/:id" component={Display} />
+          <Route
+            exact
+            path="/display/:id"
+            render={(data) => (
+              <Display match={data.match} handleAddToCart={handleAddToCart} />
+            )}
+          />
         </Switch>
       </div>
     </Router>
