@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Collection from "./components/collections/Collection";
 
 import { Navbar, Products, Cart, Checkout, Display } from "./components";
 import { commerce } from "./lib/commerce";
@@ -117,6 +118,13 @@ const App = () => {
               <Display match={data.match} handleAddToCart={handleAddToCart} />
             )}
           />
+          <Route path="/collection">
+            <Collection
+            
+              onAddToCart={handleAddToCart}
+              handleUpdateCartQty
+            />
+          </Route>
         </Switch>
       </div>
     </Router>
