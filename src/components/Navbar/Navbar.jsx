@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+
 import {
   AppBar,
   Toolbar,
@@ -18,7 +19,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/commerce.png";
 import useStyles from "./styles";
 
-const PrimarySearchAppBar = ({ totalItems }) => {
+const PrimarySearchAppBar = ({ totalItems, handleCategory }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -28,8 +29,12 @@ const PrimarySearchAppBar = ({ totalItems }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (name) => {
+    if (window.innerWidth < 600) {
+      handleCategory(name);
+      setAnchorEl(null);
+    }
+    handleCategory(name);
   };
 
   useEffect(() => {
@@ -87,9 +92,23 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             onClose={handleClose}
             TransitionComponent={Fade}
           >
-            <MenuItem onClick={handleClose}>HEADPHONES</MenuItem>
-            <MenuItem onClick={handleClose}>EARBUDS</MenuItem>
-            <MenuItem onClick={handleClose}>ACCESSORIES</MenuItem>
+            <MenuItem onClick={() => handleClose("headphones")}>
+              HEADPHONES
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleClose("earbuds");
+              }}
+            >
+              EARBUDS
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleClose("accessories");
+              }}
+            >
+              ACCESSORIES
+            </MenuItem>
           </Menu>
         </div>
       </Toolbar>
@@ -116,13 +135,37 @@ const PrimarySearchAppBar = ({ totalItems }) => {
         </Typography>
         <Grid container spacing={3}>
           <Grid item>
-            <Button>HEADPHONES</Button>
+            <Button
+              component={Link}
+              to="/collection"
+              onClick={() => {
+                handleClose("headphones");
+              }}
+            >
+              HEADPHONES
+            </Button>
           </Grid>
           <Grid item>
-            <Button>EARBUDS</Button>
+            <Button
+              component={Link}
+              to="/collection"
+              onClick={() => {
+                handleClose("earbuds");
+              }}
+            >
+              EARBUDS
+            </Button>
           </Grid>
           <Grid item>
-            <Button>ACCESSORIES</Button>
+            <Button
+              component={Link}
+              to="/collection"
+              onClick={() => {
+                handleClose("accessories");
+              }}
+            >
+              ACCESSORIES
+            </Button>
           </Grid>
         </Grid>
 

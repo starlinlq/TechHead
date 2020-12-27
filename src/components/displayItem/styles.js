@@ -18,6 +18,9 @@ export const useStyles = makeStyles(() => ({
   img2: { objectFit: "contain", height: 150, width: 100 },
   carousel: {
     marginTop: "3%",
+    maxWidth: 1300,
+
+    margin: "auto",
   },
   test: { width: 250, height: 250 },
 }));

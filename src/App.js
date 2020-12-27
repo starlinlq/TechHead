@@ -3,7 +3,7 @@ import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Collection from "./components/collections/Collection";
 
-import { Navbar, Products, Cart, Checkout, Display } from "./components";
+import { Navbar, Products, Cart, Checkout, Display, Home } from "./components";
 import { commerce } from "./lib/commerce";
 
 const App = () => {
@@ -12,6 +12,20 @@ const App = () => {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    async function getProducts() {
+      const { data } = await commerce.products.list();
+
+      setProducts(data);
+    }
+    getProducts();
+  }, []);
+
+  async function handleCategory(name) {
+    const { data } = await commerce.products.list({ category_slug: name });
+    setProducts([...data]);
+  }
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
@@ -86,14 +100,11 @@ const App = () => {
         <Navbar
           totalItems={cart.total_items}
           handleDrawerToggle={handleDrawerToggle}
+          handleCategory={handleCategory}
         />
         <Switch>
           <Route exact path="/">
-            <Products
-              products={products}
-              onAddToCart={handleAddToCart}
-              handleUpdateCartQty
-            />
+            <Home />
           </Route>
           <Route exact path="/cart">
             <Cart
@@ -120,9 +131,10 @@ const App = () => {
           />
           <Route path="/collection">
             <Collection
-            
+              products={products}
               onAddToCart={handleAddToCart}
               handleUpdateCartQty
+              handleCategory={handleCategory}
             />
           </Route>
         </Switch>

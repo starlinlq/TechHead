@@ -163,6 +163,16 @@ const Display = ({ match, handleAddToCart }) => {
               </Grid>
             </Grid>
           </Paper>
+          <div
+            style={{
+              width: 1300,
+              margin: "auto",
+              marginTop: "2%",
+              marginBottom: "2%",
+            }}
+          >
+            <h1>Related products</h1>
+          </div>
           <div className={classes.carousel}>
             <Carousel breakPoints={breakPoints}>
               {product.related_products.map((product) => (
