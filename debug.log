@@ -1,2 +1,8 @@
 [1225/170152.770:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1225/170152.799:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\802ef63d-26a9-491c-81cd-66bf8344305c: The system cannot find the path specified. (0x3)
+[1226/103416.207:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1226/103416.233:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\05bd2cc0-182c-4222-8698-5e639521839a: The system cannot find the path specified. (0x3)
+[1226/103416.240:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\b4102b97-9515-472c-8296-4a7c48377bcf: The system cannot find the path specified. (0x3)
+[1226/103416.248:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\735e3c0d-54a1-4641-a889-2b1d8d1f2443: The system cannot find the path specified. (0x3)
+[1226/103416.255:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\fa87e4c5-edf3-4776-8979-12cd97c8fca8: The system cannot find the path specified. (0x3)
+[1226/103416.262:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\starlinlq\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\835abdaa-8029-4e7d-b53f-3d0d9ca4bd9d: The system cannot find the path specified. (0x3)
